@@ -27,6 +27,7 @@
 		8F09991E2CDA5C2300006266 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 8F09991D2CDA5C2300006266 /* FirebaseFirestoreCombine-Community */; };
 		8F0999202CDA5C2300006266 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 8F09991F2CDA5C2300006266 /* FirebaseFunctions */; };
 		8F0999222CDA5C2300006266 /* FirebaseFunctionsCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 8F0999212CDA5C2300006266 /* FirebaseFunctionsCombine-Community */; };
+		8F0999252CDA5E8300006266 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0999242CDA5E8300006266 /* View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8F0998F82CDA586500006266 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F0998FB2CDA586500006266 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8F0999022CDA5B3500006266 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8F0999242CDA5E8300006266 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		8F0998F32CDA586400006266 /* Projeto-Swift-Crud */ = {
 			isa = PBXGroup;
 			children = (
+				8F0999232CDA5E6200006266 /* View */,
 				8F0998F42CDA586400006266 /* Projeto_Swift_CrudApp.swift */,
 				8F0998F62CDA586400006266 /* ContentView.swift */,
 				8F0998F82CDA586500006266 /* Assets.xcassets */,
@@ -98,6 +101,14 @@
 				8F0998FB2CDA586500006266 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8F0999232CDA5E6200006266 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8F0999242CDA5E8300006266 /* View.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +204,7 @@
 			files = (
 				8F0998F72CDA586400006266 /* ContentView.swift in Sources */,
 				8F0998F52CDA586400006266 /* Projeto_Swift_CrudApp.swift in Sources */,
+				8F0999252CDA5E8300006266 /* View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
