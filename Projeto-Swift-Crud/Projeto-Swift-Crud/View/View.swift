@@ -7,7 +7,9 @@
 
 // Felipe Almeida 22130
 
+// NAO UTILIZADO, REMOVER DEPOIS
 
+/*
 import Foundation
 import UIKit
 import Firebase
@@ -36,4 +38,4 @@ class ViewController: UIViewController {
         }
     }
 }
-
+*/

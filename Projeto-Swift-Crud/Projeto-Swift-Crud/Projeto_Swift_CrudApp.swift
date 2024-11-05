@@ -9,6 +9,10 @@ import SwiftUI
 
 @main
 struct Projeto_Swift_CrudApp: App {
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self)
+    var delegate
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
