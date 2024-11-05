@@ -7,12 +7,10 @@
 
 // Felipe Almeida 22130
 
+
 import Foundation
-
 import UIKit
-
 import Firebase
-
 import FirebaseFirestore
 
 class ViewController: UIViewController {
@@ -38,3 +36,4 @@ class ViewController: UIViewController {
         }
     }
 }
+
