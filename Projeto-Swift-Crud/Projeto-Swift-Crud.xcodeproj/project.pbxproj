@@ -30,6 +30,7 @@
 		8F0999252CDA5E8300006266 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0999242CDA5E8300006266 /* View.swift */; };
 		8F0999272CDA634200006266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0999262CDA634200006266 /* AppDelegate.swift */; };
 		8F0999292CDA643B00006266 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0999282CDA643B00006266 /* FirebaseManager.swift */; };
+		8F09992B2CDA68EA00006266 /* CadastroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F09992A2CDA68EA00006266 /* CadastroView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		8F0999242CDA5E8300006266 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		8F0999262CDA634200006266 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F0999282CDA643B00006266 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		8F09992A2CDA68EA00006266 /* CadastroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				8F0999242CDA5E8300006266 /* View.swift */,
+				8F09992A2CDA68EA00006266 /* CadastroView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				8F0999292CDA643B00006266 /* FirebaseManager.swift in Sources */,
 				8F0998F52CDA586400006266 /* Projeto_Swift_CrudApp.swift in Sources */,
 				8F0999252CDA5E8300006266 /* View.swift in Sources */,
+				8F09992B2CDA68EA00006266 /* CadastroView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
