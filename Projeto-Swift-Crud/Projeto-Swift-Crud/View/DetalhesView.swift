@@ -16,7 +16,7 @@ struct DetalhesView: View {
                 // 5 atributos do filme
                 AsyncImage(url: URL(string: filme.urlImagem)) {
                     image in
-                    .image.resizable()
+                    image.resizable()
                         .scaledToFill()
                         .frame( height: 250)
                         .cornerRadius(8)
@@ -24,15 +24,15 @@ struct DetalhesView: View {
                     ProgressView()
                 }
                 
-                Text(filme.nomeFilme)
+                Text(filme.nomeFilme)   // nome filme
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     .padding(.top)
                 
-                Text(filme.nomeFilme)
+                Text(filme.nomeDiretor)  // nome diretor
                     .font(.title2)
                     .padding(.top)
                 
-                Text(filme.nomeFilme)
+                Text(filme.anoLancamento)  // ano filme
                     .font(.title3)
                     .padding(.top)
                 
