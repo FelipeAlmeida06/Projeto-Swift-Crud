@@ -129,6 +129,9 @@ struct CadastroView: View {
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Confirmação de cadastro"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+                }
                 .padding(.top, 10)
                 
                 // Botão de Voltar
@@ -171,6 +174,12 @@ struct CadastroView: View {
             "anoLancamento": anoLancamento,
             "urlImagem": urlImagem
         ]
+        
+        // Simulação de salvamento e exibição da mensagem
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                alertMessage = "Filme cadastrado com sucesso!"
+                showAlert = true
+            }
 
         // 1. Salvar no Firebase
         db.collection("filmes").addDocument(data: filmeData) { error in

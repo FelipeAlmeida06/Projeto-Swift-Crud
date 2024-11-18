@@ -81,7 +81,23 @@ struct PrincipalView: View {
     }
     
     func carregarFilmes() {
-        
+        db.collection("filmes").getDocuments { snapshot, error in
+                    if let error = error {
+                        print("Erro ao buscar filmes: \(error.localizedDescription)")
+                    } else {
+                        filmes = snapshot?.documents.compactMap { document -> Filme? in
+                            let data = document.data()
+                            guard let nomeFilme = data["nomeFilme"] as? String,
+                                  let nomeDiretor = data["nomeDiretor"] as? String,
+                                  let sinopseFilme = data["sinopseFilme"] as? String,
+                                  let anoLancamento = data["anoLancamento"] as? String,
+                                  let urlImagem = data["urlImagem"] as? String else {
+                                return nil
+                            }
+                            return Filme(id: document.documentID, nomeFilme: nomeFilme, nomeDiretor: nomeDiretor, sinopseFilme: sinopseFilme, anoLancamento: anoLancamento, urlImagem: urlImagem)
+                        } ?? []
+                    }
+                }
     }
 }
 
