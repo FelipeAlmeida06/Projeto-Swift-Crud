@@ -47,7 +47,7 @@ struct CadastroView: View {
                         .cornerRadius(8)
                 }
             }
-            .navigationTitle("Cadastro de Filme")
+            .navigationTitle("Cadastro de Filmes/Séries")
             .padding()
         }
     }
