@@ -81,6 +81,8 @@ struct DetalhesView_Previews: PreviewProvider {
 }
 */
 
+
+
 import SwiftUI
 
 struct DetalhesView: View {

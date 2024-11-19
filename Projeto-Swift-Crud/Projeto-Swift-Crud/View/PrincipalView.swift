@@ -51,6 +51,7 @@ struct PrincipalView: View {
                     }
                 }
                 
+                /*
                 NavigationLink(destination: CadastroView(), label: {
                     Text("Cadastrar Novo Filme")
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
@@ -60,18 +61,12 @@ struct PrincipalView: View {
                         .cornerRadius(8)
                 })
                 .padding(.top)
+                 */
             }
             .navigationTitle("Filmes Cadastrados")
             .onAppear {
                 carregarFilmes()
             }
-            /*
-            .background(
-                .NavigationLink("", destination: DetalhesView(filme: selecionarFilme), isActive: $isMostrarDetalhes)
-                .hidden()
-            )
-             */
-            
             /*
             .background(
                 NavigationLink("", destination: DetalhesView(filme: selecionarFilme), isActive: $isMostrarDetalhes)

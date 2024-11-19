@@ -73,7 +73,6 @@ struct ContentView: View {
 
 
 
-
 import SwiftUI
 
 struct ContentView: View {
@@ -110,68 +109,3 @@ struct ContentView: View {
         }
     }
 }
-
-
-
-
-/*
-import SwiftUI
-
-struct ContentView: View {
-    @State private var filmes: [Filme] = [] // Lista compartilhada de filmes
-    @State private var nomeFilme: String = ""
-    @State private var anoFilme: String = ""
-    @State private var imagemUrl: String = ""
-    
-    var body: some View {
-        NavigationView {
-            VStack {
-                Form {
-                    Section(header: Text("Insira as Informações")) {
-                        TextField("Nome do Filme", text: $nomeFilme)
-                        TextField("Ano de Lançamento", text: $anoFilme)
-                            .keyboardType(.numberPad)
-                        TextField("URL da Imagem", text: $imagemUrl)
-                    }
-                }
-                
-                Button(action: adicionarFilme) {
-                    Text("Salvar Filme")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
-                .padding(.horizontal)
-                .disabled(nomeFilme.isEmpty || anoFilme.isEmpty || imagemUrl.isEmpty)
-                
-                Spacer()
-                
-                NavigationLink(destination: DetailView(filmes: filmes)) {
-                    Text("Ver Detalhes dos Filmes")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
-                .padding(.horizontal)
-            }
-            .navigationTitle("Cadastro de Filmes")
-        }
-    }
-    
-    func adicionarFilme() {
-        let novoFilme = Filme(nome: nomeFilme, ano: anoFilme, imagemUrl: imagemUrl)
-        filmes.append(novoFilme)
-        limparCampos()
-    }
-    
-    func limparCampos() {
-        nomeFilme = ""
-        anoFilme = ""
-        imagemUrl = ""
-    }
-}
-*/
