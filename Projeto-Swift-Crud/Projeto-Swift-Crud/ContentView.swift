@@ -189,7 +189,7 @@ struct ContentView: View {
                 }
             }
             .padding()
-            .navigationTitle("Voltar para a Tela Principal")
+            .navigationTitle("Tela Principal")
         }
     }
 }
