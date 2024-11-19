@@ -51,6 +51,21 @@ struct DetalhesView: View {
             } else {
                 Text("Erro ao carregar os detalhes.")
             }
+            
+            NavigationLink(destination: CadastroView(), label: {
+                Text("Voltar para a tela Cadastro")
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            })
+            .padding(.bottom)
+            /*
+            else {
+                Text("Erro ao carregar os detalhes.")
+            }
+             */
         }
         .padding()
         .navigationTitle("Detalhes do Filme")

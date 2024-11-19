@@ -225,6 +225,8 @@ struct CadastroView: View {
     }
     
     func salvarFilme() {
+        
+        /*
         // Validação dos campos
         guard !nomeFilme.isEmpty,
               !nomeDiretor.isEmpty,
@@ -267,6 +269,45 @@ struct CadastroView: View {
             // Limpar campos
             limparCampos()
         }
+         */
+        
+        
+        guard !nomeFilme.isEmpty,
+                  !nomeDiretor.isEmpty,
+                  !sinopseFilme.isEmpty,
+                  !anoLancamento.isEmpty,
+                  !urlImagem.isEmpty else {
+                alertMessage = "Por favor, preencha todos os campos antes de salvar."
+                showAlert = true
+                return
+            }
+        
+        let filmeData: [String: Any] = [
+                "nomeFilme": nomeFilme,
+                "nomeDiretor": nomeDiretor,
+                "sinopse": sinopseFilme,
+                "anoLancamento": anoLancamento,
+                "urlImagem": urlImagem
+            ]
+        
+        FirebaseManager.shared.saveData(collection: "filmes", document: UUID().uuidString, data: filmeData) { error in
+                if let error = error {
+                    alertMessage = "Erro ao salvar no Firestore: \(error.localizedDescription)"
+                    showAlert = true
+                } else {
+                    filmeCriado = Filme(
+                        id: UUID().uuidString,
+                        nomeFilme: nomeFilme,
+                        nomeDiretor: nomeDiretor,
+                        sinopseFilme: sinopseFilme,
+                        anoLancamento: anoLancamento,
+                        urlImagem: urlImagem
+                    )
+                    alertMessage = "Filme cadastrado com sucesso!"
+                    showAlert = true
+                    limparCampos()
+                }
+            }
     }
     
     func limparCampos() {
@@ -277,4 +318,3 @@ struct CadastroView: View {
         urlImagem = ""
     }
 }
-

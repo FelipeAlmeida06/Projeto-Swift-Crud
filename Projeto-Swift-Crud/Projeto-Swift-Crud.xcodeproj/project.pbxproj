@@ -79,7 +79,6 @@
 		8F0998E82CDA586400006266 = {
 			isa = PBXGroup;
 			children = (
-				8F0999022CDA5B3500006266 /* GoogleService-Info.plist */,
 				8F0998F32CDA586400006266 /* Projeto-Swift-Crud */,
 				8F0998F22CDA586400006266 /* Products */,
 			);
@@ -96,6 +95,7 @@
 		8F0998F32CDA586400006266 /* Projeto-Swift-Crud */ = {
 			isa = PBXGroup;
 			children = (
+				8F0999022CDA5B3500006266 /* GoogleService-Info.plist */,
 				8F0999232CDA5E6200006266 /* View */,
 				8F0998F42CDA586400006266 /* Projeto_Swift_CrudApp.swift */,
 				8F0998F62CDA586400006266 /* ContentView.swift */,

@@ -5,6 +5,7 @@
 //  Created by FELIPE on 05/11/24.
 //
 
+
 import UIKit
 import Foundation
 import FirebaseCore
@@ -16,3 +17,22 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         return true
     }
 }
+
+
+/*
+import Firebase
+
+@main
+struct YourApp: App {
+    
+    init() {
+        FirebaseApp.configure()
+    }
+    
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
+}
+*/

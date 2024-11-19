@@ -15,6 +15,10 @@ class FirebaseManager {
     let db = Firestore.firestore()
     
     private init() {}
+    
+    //init() {
+     //   print("Firestore inicializado: \(db != nil)")
+    //}
 
     func logEvent(name: String, parameters: [String: NSObject]?) {
         Analytics.logEvent(name, parameters: parameters)

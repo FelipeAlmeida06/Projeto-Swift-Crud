@@ -71,10 +71,13 @@ struct PrincipalView: View {
                 .hidden()
             )
              */
+            
+            /*
             .background(
                 NavigationLink("", destination: DetalhesView(filme: selecionarFilme), isActive: $isMostrarDetalhes)
                     .hidden()
             )
+             */
         }
         
         //Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
