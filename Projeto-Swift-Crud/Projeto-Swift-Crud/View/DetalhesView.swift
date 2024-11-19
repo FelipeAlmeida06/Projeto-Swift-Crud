@@ -61,11 +61,6 @@ struct DetalhesView: View {
                     .cornerRadius(8)
             })
             .padding(.bottom)
-            /*
-            else {
-                Text("Erro ao carregar os detalhes.")
-            }
-             */
         }
         .padding()
         .navigationTitle("Detalhes do Filme")
@@ -83,3 +78,54 @@ struct DetalhesView_Previews: PreviewProvider {
 #Preview {
     DetalhesView()
 }
+
+
+
+/*
+import SwiftUI
+
+struct DetailView: View {
+    @State var filmes: [Filme] // Lista de filmes
+    
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 16) {
+                ForEach(filmes) { filme in
+                    CardView(filme: filme)
+                }
+            }
+            .padding()
+        }
+        .navigationTitle("Filmes Cadastrados")
+    }
+}
+
+struct CardView: View {
+    let filme: Filme
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            AsyncImage(url: URL(string: filme.imagemUrl)) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 200)
+                    .cornerRadius(8)
+            } placeholder: {
+                ProgressView()
+            }
+            
+            Text(filme.nome)
+                .font(.headline)
+            
+            Text("Ano: \(filme.ano)")
+                .font(.subheadline)
+                .foregroundColor(.gray)
+        }
+        .padding()
+        .background(Color(UIColor.systemBackground))
+        .cornerRadius(8)
+        .shadow(color: .gray.opacity(0.4), radius: 4, x: 0, y: 2)
+    }
+}
+*/
