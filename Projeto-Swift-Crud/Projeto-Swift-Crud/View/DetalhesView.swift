@@ -5,6 +5,7 @@
 //  Created by FELIPE on 18/11/24.
 //
 
+/*
 import SwiftUI
 
 struct DetalhesView: View {
@@ -78,34 +79,39 @@ struct DetalhesView_Previews: PreviewProvider {
 #Preview {
     DetalhesView()
 }
+*/
 
-
-
-/*
 import SwiftUI
 
-struct DetailView: View {
-    @State var filmes: [Filme] // Lista de filmes
+struct DetalhesView: View {
+    @Binding var filmes: [Filme] // Lista compartilhada
     
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
                 ForEach(filmes) { filme in
-                    CardView(filme: filme)
+                    CardView(filme: filme, onDelete: {
+                        excluirFilme(filme)
+                    })
                 }
             }
             .padding()
         }
         .navigationTitle("Filmes Cadastrados")
     }
+    
+    func excluirFilme(_ filme: Filme) {
+        filmes.removeAll { $0.id == filme.id }
+    }
 }
 
 struct CardView: View {
     let filme: Filme
+    let onDelete: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            AsyncImage(url: URL(string: filme.imagemUrl)) { image in
+            AsyncImage(url: URL(string: filme.urlImagem)) { image in
                 image
                     .resizable()
                     .scaledToFit()
@@ -115,12 +121,21 @@ struct CardView: View {
                 ProgressView()
             }
             
-            Text(filme.nome)
+            Text(filme.nomeFilme)
                 .font(.headline)
             
-            Text("Ano: \(filme.ano)")
+            Text("Ano: \(filme.anoLancamento)")
                 .font(.subheadline)
                 .foregroundColor(.gray)
+            
+            Button(action: onDelete) {
+                Text("Excluir")
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }
         }
         .padding()
         .background(Color(UIColor.systemBackground))
@@ -128,4 +143,4 @@ struct CardView: View {
         .shadow(color: .gray.opacity(0.4), radius: 4, x: 0, y: 2)
     }
 }
-*/
+
