@@ -111,6 +111,10 @@ struct CardView: View {
     let filme: Filme
     let onDelete: () -> Void
     
+    // botao excluir
+    @State private var showAlert = false
+    @State private var isDeleted = false
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             AsyncImage(url: URL(string: filme.urlImagem)) { image in
@@ -130,6 +134,7 @@ struct CardView: View {
                 .font(.subheadline)
                 .foregroundColor(.gray)
             
+            /*
             Button(action: onDelete) {
                 Text("Excluir")
                     .frame(maxWidth: .infinity)
@@ -138,6 +143,29 @@ struct CardView: View {
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }
+             */
+            
+            Button(action: {
+                showAlert = true
+            }) {
+                Text("Excluir")
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                    .padding()
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Excluir Filme"),
+            message: Text("Tem certeza que deseja excluir este filme?"),
+            primaryButton: .destructive(Text("Excluir")) {
+                onDelete()
+            },
+            secondaryButton: .cancel()
+              )
+            }
+            
         }
         .padding()
         .background(Color(UIColor.systemBackground))
