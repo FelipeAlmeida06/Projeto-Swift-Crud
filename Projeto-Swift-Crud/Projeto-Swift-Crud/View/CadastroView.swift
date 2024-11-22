@@ -54,6 +54,7 @@ struct CadastroView: View {
     }
     
     func salvarFilme() {
+        /*
         guard !nomeFilme.isEmpty, !nomeDiretor.isEmpty, !sinopseFilme.isEmpty, !anoLancamento.isEmpty, !urlImagem.isEmpty else {
                 alertMessage = "Por favor, preencha todos os campos antes de salvar."
                 showAlert = true
@@ -86,6 +87,68 @@ struct CadastroView: View {
                 }
                 showAlert = true
             }
+         */
+        
+        guard !nomeFilme.isEmpty, !nomeDiretor.isEmpty, !sinopseFilme.isEmpty, !anoLancamento.isEmpty, !urlImagem.isEmpty else {
+                    alertMessage = "Por favor, preencha todos os campos antes de salvar."
+                    showAlert = true
+                    return
+            }
+            
+            let novoFilme: [String: Any] = [
+                    "nomeFilme": nomeFilme,
+                    "nomeDiretor": nomeDiretor,
+                    "sinopseFilme": sinopseFilme,
+                    "anoLancamento": anoLancamento,
+                    "urlImagem": urlImagem,
+                    "criadoEm": Timestamp()
+            ]
+            
+        /*
+            // Salvar no Firestore e obter o ID do documento
+            db.collection("filmes").addDocument(data: novoFilme) { error in
+                    if let error = error {
+                        alertMessage = "Erro ao salvar: \(error.localizedDescription)"
+                    } else {
+                        // Após salvar, obter o ID do documento gerado
+                        let idDoFilme = db.collection("filmes").document().documentID
+                        
+                        alertMessage = "Filme cadastrado com sucesso!"
+                        filmes.append(Filme(
+                            id: idDoFilme, // Usando o ID gerado pelo Firestore
+                            nomeFilme: nomeFilme,
+                            nomeDiretor: nomeDiretor,
+                            sinopseFilme: sinopseFilme,
+                            anoLancamento: anoLancamento,
+                            urlImagem: urlImagem
+                        ))
+                        limparCampos()
+                    }
+                    showAlert = true
+                }
+         */
+        
+        db.collection("filmes").addDocument(data: novoFilme) { error in
+                if let error = error {
+                    alertMessage = "Erro ao salvar: \(error.localizedDescription)"
+                } else {
+                    alertMessage = "Filme cadastrado com sucesso!"
+                    // Pega o ID do documento gerado pelo Firebase
+                    if let documentId = error?.localizedDescription { // Melhor fazer isso diretamente na resposta do Firebase
+                        filmes.append(Filme(
+                            id: documentId,
+                            nomeFilme: nomeFilme,
+                            nomeDiretor: nomeDiretor,
+                            sinopseFilme: sinopseFilme,
+                            anoLancamento: anoLancamento,
+                            urlImagem: urlImagem
+                        ))
+                    }
+                    limparCampos()
+                }
+                showAlert = true
+            }
+        
     }
     
     func limparCampos() {

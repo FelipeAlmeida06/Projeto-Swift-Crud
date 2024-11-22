@@ -28,6 +28,7 @@ struct DetalhesView: View {
     }
     
     func excluirFilme(_ filme: Filme) {
+        
         // Exclui o filme do Firestore
         db.collection("filmes").document(filme.id).delete { error in
             if let error = error {
@@ -37,6 +38,7 @@ struct DetalhesView: View {
                 filmes.removeAll { $0.id == filme.id }
             }
         }
+        
     }
      
 }
