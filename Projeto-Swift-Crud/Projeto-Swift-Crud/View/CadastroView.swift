@@ -42,7 +42,7 @@ struct CadastroView: View {
                 Text("Salvar Filme")
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.blue)
+                    .background(Color.green)   // blue
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }
