@@ -50,32 +50,12 @@ struct PrincipalView: View {
                     }
                     }
                 }
-                
-                /*
-                NavigationLink(destination: CadastroView(), label: {
-                    Text("Cadastrar Novo Filme")
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                })
-                .padding(.top)
-                 */
             }
             .navigationTitle("Filmes Cadastrados")
             .onAppear {
                 carregarFilmes()
             }
-            /*
-            .background(
-                NavigationLink("", destination: DetalhesView(filme: selecionarFilme), isActive: $isMostrarDetalhes)
-                    .hidden()
-            )
-             */
         }
-        
-        //Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
     
     func carregarFilmes() {

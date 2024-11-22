@@ -27,7 +27,6 @@
 		8F09991E2CDA5C2300006266 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 8F09991D2CDA5C2300006266 /* FirebaseFirestoreCombine-Community */; };
 		8F0999202CDA5C2300006266 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 8F09991F2CDA5C2300006266 /* FirebaseFunctions */; };
 		8F0999222CDA5C2300006266 /* FirebaseFunctionsCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 8F0999212CDA5C2300006266 /* FirebaseFunctionsCombine-Community */; };
-		8F0999252CDA5E8300006266 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0999242CDA5E8300006266 /* View.swift */; };
 		8F0999272CDA634200006266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0999262CDA634200006266 /* AppDelegate.swift */; };
 		8F0999292CDA643B00006266 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0999282CDA643B00006266 /* FirebaseManager.swift */; };
 		8F09992B2CDA68EA00006266 /* CadastroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F09992A2CDA68EA00006266 /* CadastroView.swift */; };
@@ -42,7 +41,6 @@
 		8F0998F82CDA586500006266 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F0998FB2CDA586500006266 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8F0999022CDA5B3500006266 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		8F0999242CDA5E8300006266 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		8F0999262CDA634200006266 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F0999282CDA643B00006266 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		8F09992A2CDA68EA00006266 /* CadastroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroView.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 		8F0999232CDA5E6200006266 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8F0999242CDA5E8300006266 /* View.swift */,
 				8F09992A2CDA68EA00006266 /* CadastroView.swift */,
 				8F29E95C2CEB79A7001EBA4B /* PrincipalView.swift */,
 				8F29E95E2CEB7F4A001EBA4B /* DetalhesView.swift */,
@@ -222,7 +219,6 @@
 				8F29E95F2CEB7F4A001EBA4B /* DetalhesView.swift in Sources */,
 				8F0999292CDA643B00006266 /* FirebaseManager.swift in Sources */,
 				8F0998F52CDA586400006266 /* Projeto_Swift_CrudApp.swift in Sources */,
-				8F0999252CDA5E8300006266 /* View.swift in Sources */,
 				8F29E95D2CEB79A7001EBA4B /* PrincipalView.swift in Sources */,
 				8F09992B2CDA68EA00006266 /* CadastroView.swift in Sources */,
 			);
