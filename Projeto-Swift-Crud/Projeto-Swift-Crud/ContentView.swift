@@ -36,6 +36,7 @@ struct ContentView: View {
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
+                
             }
             .padding()
             .navigationTitle("Tela Principal")
