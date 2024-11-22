@@ -124,6 +124,7 @@ struct DetalhesView: View {
             }
         }
     }
+     
 }
 
 struct CardView: View {
