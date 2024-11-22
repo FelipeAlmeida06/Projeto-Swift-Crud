@@ -50,7 +50,7 @@ struct CadastroView: View {
                 Alert(title: Text("Cadastro"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
             }
         }
-        .navigationTitle("Cadastro de Filmes/Séries")
+        .navigationTitle("Cadastro de Filmes")
     }
     
     func salvarFilme() {
