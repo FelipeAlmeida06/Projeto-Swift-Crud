@@ -54,41 +54,6 @@ struct CadastroView: View {
     }
     
     func salvarFilme() {
-        /*
-        guard !nomeFilme.isEmpty, !nomeDiretor.isEmpty, !sinopseFilme.isEmpty, !anoLancamento.isEmpty, !urlImagem.isEmpty else {
-                alertMessage = "Por favor, preencha todos os campos antes de salvar."
-                showAlert = true
-                return
-        }
-        
-        let novoFilme: [String: Any] = [
-                "nomeFilme": nomeFilme,
-                "nomeDiretor": nomeDiretor,
-                "sinopseFilme": sinopseFilme,
-                "anoLancamento": anoLancamento,
-                "urlImagem": urlImagem,
-                "criadoEm": Timestamp()
-        ]
-        
-        db.collection("filmes").addDocument(data: novoFilme) { error in
-                if let error = error {
-                    alertMessage = "Erro ao salvar: \(error.localizedDescription)"
-                } else {
-                    alertMessage = "Filme cadastrado com sucesso!"
-                    filmes.append(Filme(
-                        id: UUID().uuidString,
-                        nomeFilme: nomeFilme,
-                        nomeDiretor: nomeDiretor,
-                        sinopseFilme: sinopseFilme,
-                        anoLancamento: anoLancamento,
-                        urlImagem: urlImagem
-                    ))
-                    limparCampos()
-                }
-                showAlert = true
-            }
-         */
-        
         guard !nomeFilme.isEmpty, !nomeDiretor.isEmpty, !sinopseFilme.isEmpty, !anoLancamento.isEmpty, !urlImagem.isEmpty else {
                     alertMessage = "Por favor, preencha todos os campos antes de salvar."
                     showAlert = true
@@ -148,7 +113,6 @@ struct CadastroView: View {
                 }
                 showAlert = true
             }
-        
     }
     
     func limparCampos() {
