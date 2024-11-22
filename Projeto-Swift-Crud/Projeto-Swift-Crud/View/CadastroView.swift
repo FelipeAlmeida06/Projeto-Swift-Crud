@@ -53,6 +53,7 @@ struct CadastroView: View {
         .navigationTitle("Cadastro de Filmes")
     }
     
+    /*
     func salvarFilme() {
         guard !nomeFilme.isEmpty, !nomeDiretor.isEmpty, !sinopseFilme.isEmpty, !anoLancamento.isEmpty, !urlImagem.isEmpty else {
                     alertMessage = "Por favor, preencha todos os campos antes de salvar."
@@ -114,6 +115,51 @@ struct CadastroView: View {
                 showAlert = true
             }
     }
+     */
+    
+    
+    
+    
+    func salvarFilme() {
+        guard !nomeFilme.isEmpty, !nomeDiretor.isEmpty, !sinopseFilme.isEmpty, !anoLancamento.isEmpty, !urlImagem.isEmpty else {
+            alertMessage = "Por favor, preencha todos os campos antes de salvar."
+            showAlert = true
+            return
+        }
+        
+        let novoFilme: [String: Any] = [
+            "nomeFilme": nomeFilme,
+            "nomeDiretor": nomeDiretor,
+            "sinopseFilme": sinopseFilme,
+            "anoLancamento": anoLancamento,
+            "urlImagem": urlImagem,
+            "criadoEm": Timestamp()
+        ]
+        
+        db.collection("filmes").addDocument(data: novoFilme) { error in
+            if let error = error {
+                alertMessage = "Erro ao salvar: \(error.localizedDescription)"
+            } else {
+                alertMessage = "Filme cadastrado com sucesso!"
+                // O Firebase Firestore não retorna o documentId através do erro
+                // Em vez disso, usamos a referência ao documento retornada
+                let documentId = db.collection("filmes").document().documentID  // Capturando o ID correto
+                
+                filmes.append(Filme(
+                    id: documentId,  // Usando o ID gerado pelo Firebase
+                    nomeFilme: nomeFilme,
+                    nomeDiretor: nomeDiretor,
+                    sinopseFilme: sinopseFilme,
+                    anoLancamento: anoLancamento,
+                    urlImagem: urlImagem
+                ))
+                
+                limparCampos()
+            }
+            showAlert = true
+        }
+    }
+
     
     func limparCampos() {
         nomeFilme = ""

@@ -109,55 +109,14 @@ import FirebaseFirestore
 struct DetalhesView: View {
     @Binding var filmes: [Filme] // Lista compartilhada
     let db = Firestore.firestore() // Referência ao Firestore
-    @State private var filmeSelecionado: Filme? // Filme selecionado para exibir os detalhes
     
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
                 ForEach(filmes) { filme in
-                    CardView(filme: filme, onOpen: {
-                        filmeSelecionado = filme // Quando clicar, seleciona o filme
+                    CardView(filme: filme, onDelete: {
+                        excluirFilme(filme) // Chama a função de exclusão
                     })
-                }
-                
-                if let filme = filmeSelecionado {
-                    // Exibe os detalhes do filme selecionado
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text(filme.nomeFilme)
-                            .font(.largeTitle)
-                            .bold()
-                        
-                        Text("Diretor: \(filme.nomeDiretor)")
-                            .font(.title3)
-                        
-                        Text("Ano de Lançamento: \(filme.anoLancamento)")
-                            .font(.title3)
-                        
-                        Text("Sinopse: \(filme.sinopseFilme)")
-                            .font(.body)
-                        
-                        AsyncImage(url: URL(string: filme.urlImagem)) { image in
-                            image
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 250)
-                                .cornerRadius(8)
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        
-                        Button(action: {
-                            excluirFilme(filme) // Exclui o filme
-                        }) {
-                            Text("Excluir Filme")
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color.red)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
-                        }
-                    }
-                    .padding()
                 }
             }
             .padding()
@@ -165,25 +124,27 @@ struct DetalhesView: View {
         .navigationTitle("Filmes Cadastrados")
     }
     
-    // Função para excluir filme
     func excluirFilme(_ filme: Filme) {
+        // Primeiro, exclui o filme do Firestore
         db.collection("filmes").document(filme.id).delete { error in
             if let error = error {
                 print("Erro ao excluir o filme do Firebase: \(error.localizedDescription)")
             } else {
-                // Se a exclusão no Firebase for bem-sucedida, remove o filme da lista local
-                filmes.removeAll { $0.id == filme.id }
-                filmeSelecionado = nil // Reseta a seleção do filme
+                // Se a exclusão for bem-sucedida no Firestore, remove o filme da lista local
+                if let index = filmes.firstIndex(where: { $0.id == filme.id }) {
+                    filmes.remove(at: index)
+                }
+                print("Filme excluído com sucesso do Firebase e da lista local.")
             }
         }
     }
 }
 
-import SwiftUI
-
 struct CardView: View {
     let filme: Filme
-    let onOpen: () -> Void // Callback para abrir os detalhes
+    let onDelete: () -> Void
+    
+    @State private var showAlert = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -205,14 +166,24 @@ struct CardView: View {
                 .foregroundColor(.gray)
             
             Button(action: {
-                onOpen() // Chama a função para abrir os detalhes do filme
+                showAlert = true
             }) {
-                Text("Abrir Filme")
+                Text("Excluir")
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.blue)
+                    .background(Color.red)
                     .foregroundColor(.white)
                     .cornerRadius(8)
+            }
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Excluir Filme"),
+                    message: Text("Tem certeza que deseja excluir este filme?"),
+                    primaryButton: .destructive(Text("Excluir")) {
+                        onDelete()
+                    },
+                    secondaryButton: .cancel()
+                )
             }
         }
         .padding()
