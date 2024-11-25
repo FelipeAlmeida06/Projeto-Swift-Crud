@@ -13,6 +13,10 @@ struct DetalhesView: View {
     @Binding var filmes: [Filme] // Lista compartilhada
     let db = Firestore.firestore() // Referência ao Firestore
     
+    // pesquisa
+    @State private var searchText: String = "" // Estado para o texto de busca
+    
+    /*
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
@@ -36,6 +40,51 @@ struct DetalhesView: View {
                                 .padding(.trailing, 16) // Espaçamento à direita
                                 .padding(.bottom, 16)  // Espaçamento inferior
                         }
+    }
+     */
+    
+    var body: some View {
+        NavigationView {
+                    VStack {
+                        // Campo de Busca
+                        HStack {
+                            Image(systemName: "magnifyingglass") // Ícone de lupa
+                                .foregroundColor(.gray)
+                            TextField("Buscar filmes", text: $searchText)
+                                .textFieldStyle(PlainTextFieldStyle())
+                                .padding(8)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+                                )
+                        }
+                        .padding([.leading, .trailing, .top], 16) // Margens
+                        
+                        ScrollView {
+                            VStack(spacing: 16) {
+                                // Lista filtrada com base no texto de busca
+                                ForEach(filmes.filter { searchText.isEmpty || $0.nomeFilme.localizedCaseInsensitiveContains(searchText) }) { filme in
+                                    CardView(filme: filme, onDelete: {
+                                        excluirFilme(filme) // Chama a função de exclusão
+                                    })
+                                }
+                            }
+                            .padding()
+                        }
+                        
+                        // Botão Cadastrar
+                        NavigationLink(destination: CadastroView(filmes: $filmes)) {
+                            Text("Cadastrar")
+                                .frame(width: 120, height: 50)
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                                .padding(.trailing, 16) // Espaçamento à direita
+                                .padding(.bottom, 16)  // Espaçamento inferior
+                        }
+                    }
+                    .navigationTitle("Filmes Cadastrados")
+                }
     }
     
     func excluirFilme(_ filme: Filme) {
