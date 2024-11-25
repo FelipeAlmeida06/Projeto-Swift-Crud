@@ -50,6 +50,15 @@ struct CadastroView: View {
                 Alert(title: Text("Cadastro"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
             }
             
+            // Botão de Detalhes
+                        NavigationLink(destination: DetalhesView(filmes: $filmes)) {
+                            Text("Detalhes")
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                        }
         }
         .navigationTitle("Cadastro de Filmes")
     }
