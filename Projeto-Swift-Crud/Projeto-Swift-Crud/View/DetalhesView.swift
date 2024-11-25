@@ -6,6 +6,8 @@
 //
 
 
+// Felipe Antônio de Oliveira Almeida
+// 22130
 import SwiftUI
 import FirebaseFirestore
 

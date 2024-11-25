@@ -5,9 +5,9 @@
 //  Created by FELIPE on 05/11/24.
 //
 
-// Felipe Almeida 22130 05/11/24
 
-
+// Felipe Antônio de Oliveira Almeida
+// 22130
 import SwiftUI
 import FirebaseFirestore
 
