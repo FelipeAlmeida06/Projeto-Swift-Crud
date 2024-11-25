@@ -16,75 +16,55 @@ struct DetalhesView: View {
     // pesquisa
     @State private var searchText: String = "" // Estado para o texto de busca
     
-    /*
     var body: some View {
-        ScrollView {
-            VStack(spacing: 16) {
-                ForEach(filmes) { filme in
-                    CardView(filme: filme, onDelete: {
-                        excluirFilme(filme) // Chama a função de exclusão
-                    })
-                }
-            }
-            .padding()
-        }
-        .navigationTitle("Filmes Cadastrados")
-        
-        // Botão Cadastrar
-                        NavigationLink(destination: CadastroView(filmes: $filmes)) {
-                            Text("Cadastrar")
-                                .frame(width: 120, height: 50)
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
-                                .padding(.trailing, 16) // Espaçamento à direita
-                                .padding(.bottom, 16)  // Espaçamento inferior
-                        }
-    }
-     */
     
-    var body: some View {
         NavigationView {
-                    VStack {
-                        // Campo de Busca
-                        HStack {
-                            Image(systemName: "magnifyingglass") // Ícone de lupa
-                                .foregroundColor(.gray)
-                            TextField("Buscar filmes", text: $searchText)
-                                .textFieldStyle(PlainTextFieldStyle())
-                                .padding(8)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-                                )
-                        }
-                        .padding([.leading, .trailing, .top], 16) // Margens
-                        
-                        ScrollView {
-                            VStack(spacing: 16) {
-                                // Lista filtrada com base no texto de busca
-                                ForEach(filmes.filter { searchText.isEmpty || $0.nomeFilme.localizedCaseInsensitiveContains(searchText) }) { filme in
-                                    CardView(filme: filme, onDelete: {
-                                        excluirFilme(filme) // Chama a função de exclusão
-                                    })
-                                }
-                            }
-                            .padding()
-                        }
-                        
-                        // Botão Cadastrar
-                        NavigationLink(destination: CadastroView(filmes: $filmes)) {
-                            Text("Cadastrar")
-                                .frame(width: 120, height: 50)
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
-                                .padding(.trailing, 16) // Espaçamento à direita
-                                .padding(.bottom, 16)  // Espaçamento inferior
-                        }
+                VStack(spacing: 8) { // Reduza o espaçamento geral
+                    // Título manual no lugar do `navigationTitle`
+                    Text("Filmes Cadastrados")
+                        .font(.largeTitle)
+                        .bold()
+                        .padding(.top, 16) // Ajuste para controle do espaçamento superior
+                    
+                    // Campo de Busca
+                    HStack {
+                        Image(systemName: "magnifyingglass") // Ícone de lupa
+                            .foregroundColor(.gray)
+                        TextField("Buscar filmes", text: $searchText)
+                            .textFieldStyle(PlainTextFieldStyle())
+                            .padding(8)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+                            )
                     }
-                    .navigationTitle("Filmes Cadastrados")
+                    .padding([.leading, .trailing], 16) // Margem horizontal
+                    .padding(.bottom, 8) // Margem entre campo de busca e próximo elemento
+                    
+                    ScrollView {
+                        VStack(spacing: 16) {
+                            ForEach(filmes.filter { searchText.isEmpty || $0.nomeFilme.localizedCaseInsensitiveContains(searchText) }) { filme in
+                                CardView(filme: filme, onDelete: {
+                                    excluirFilme(filme)
+                                })
+                            }
+                        }
+                        .padding()
+                    }
+                    
+                    // Botão Cadastrar
+                    NavigationLink(destination: CadastroView(filmes: $filmes)) {
+                        Text("Cadastrar")
+                            .frame(width: 120, height: 50)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(8)
+                            .padding(.trailing, 16) // Espaçamento à direita
+                            .padding(.bottom, 16)  // Espaçamento inferior
+                    }
                 }
+                .toolbar(.hidden) // Remove o espaço extra da barra de navegação
+            }
     }
     
     func excluirFilme(_ filme: Filme) {
