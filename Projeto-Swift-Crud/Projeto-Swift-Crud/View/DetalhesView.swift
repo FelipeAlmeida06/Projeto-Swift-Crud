@@ -25,6 +25,17 @@ struct DetalhesView: View {
             .padding()
         }
         .navigationTitle("Filmes Cadastrados")
+        
+        // Botão Cadastrar
+                        NavigationLink(destination: CadastroView(filmes: $filmes)) {
+                            Text("Cadastrar")
+                                .frame(width: 120, height: 50)
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                                .padding(.trailing, 16) // Espaçamento à direita
+                                .padding(.bottom, 16)  // Espaçamento inferior
+                        }
     }
     
     func excluirFilme(_ filme: Filme) {
